@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/ce0ff9b6-e8d0-4dbb-984e-5dcd2b07985f/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/kabal-demo",
+    "appService.deploySubpath": "apps\\server"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "@kabal/example-package",
+  "version": "0.0.1",
+  "description": "This is an empty example package. It is used as an example of using Azure Artifacts.",
+  "main": "index.js",
+  "publishConfig":{"registry":"https://pkgs.dev.azure.com/kabal-no/c084abf0-7a45-4a87-b5fc-f77fdf5d2d06/_packaging/kabal-npm/npm/registry/ "},
+  "exports": {
+    ".": "./index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "refreshVSToken" : "vsts-npm-auth -config \".\\.npmrc\" -TargetConfig \"$HOME\\.npmrc\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
