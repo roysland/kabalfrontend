@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://kabaltest.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_2743826384d24d36adbbc48526137d05 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_6c2b6689a83546d29c4631659237a9a0 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_a26ab81358fd4cd796c452b995a293c3 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_c2703724cc1b474ab6c17bc2ccf963ce }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: kabaltest.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2743826384d24d36adbbc48526137d05 }}/kabalfrontend:${{ github.sha }}
+        tags: kabaltest.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_a26ab81358fd4cd796c452b995a293c3 }}/kabalfrontend:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'kabalfrontend'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_87d0f8af763841d7bc3a94eb325ae174 }}
-        images: 'kabaltest.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_2743826384d24d36adbbc48526137d05 }}/kabalfrontend:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_23207c95de5040a9a3239c9f9d799fb3 }}
+        images: 'kabaltest.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_a26ab81358fd4cd796c452b995a293c3 }}/kabalfrontend:${{ github.sha }}'
