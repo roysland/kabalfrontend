@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: kabaltest.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_a26ab81358fd4cd796c452b995a293c3 }}/kabalfrontend:${{ github.sha }}
+        tags: kabaltest.azurecr.io/$({{ secrets.AzureAppService_ContainerUsername_a26ab81358fd4cd796c452b995a293c3 }} | lower)/kabalfrontend:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
