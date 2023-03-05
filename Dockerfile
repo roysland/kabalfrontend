@@ -12,6 +12,7 @@ COPY ./out/json .
 
 # Install Node.js dependencies
 RUN npm install
+RUN npm install -g turbo
 
 # Install the Oracle Instant Client libraries
 # RUN apt-get update && \
