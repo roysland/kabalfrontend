@@ -1,0 +1,42 @@
+name: Dev - Build and deploy Docker to AWS Lightsail Container Service
+
+on:
+  push:
+   branches:
+     - main
+
+jobs:
+  build_and_deploy_to_lightsail_container_service:
+    runs-on: ubuntu-latest
+
+    env:
+      SERVICE_NAME: container-service-1
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Upgrade AWS CLI version and setup lightsailctl
+      run: |
+       aws --version
+       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+       unzip awscliv2.zip
+       sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
+       which aws
+       aws --version
+       sudo curl "https://s3.us-west-2.amazonaws.com/lightsailctl/latest/linux-amd64/lightsailctl" -o "/usr/local/bin/lightsailctl"
+       sudo chmod +x /usr/local/bin/lightsailctl
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+        aws-region: eu-north-1
+
+    - name: Build Node Docker Image
+      run: >
+        docker build --pull --rm -f "Dockerfile" -t frontend:latest "."
+    - name: List the Docker Images and Tags
+      run: |
+        docker images list
+    - name: Push the Docker Image
+      run: >
+        aws lightsail push-container-image --region eu-north-1 --service-name container-service-1 --label frontend --image frontend:latest
