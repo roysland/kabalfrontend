@@ -36,7 +36,7 @@ Packages are modules that are used in other applications. These include shared l
 ## Build
 
 # Azure setup
-* Create a Container registry
+* Create a Container registry. Although not stated anywhere, this NEEDS to be a lowercase name, or else github actions will fail.
 * Upload container to registry
 * Create a Web App with container
 * Once the app service is running, go to Deployment > Deployment center
