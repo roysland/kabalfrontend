@@ -8,7 +8,7 @@ containers:
     ports:
       "3000": HTTP
 publicEndpoint:
-  containerName: nodejs
+  containerName: frontend
   containerPort: 3000
   healthCheck:
     healthyThreshold: 2
