@@ -13,4 +13,4 @@ jobs:
           context: .
           push: false
           tags: |
-            <registry-name>.azurecr.io/<image-name>:pr-${{ github.event.number }}
+            kabaltest.azurecr.io/kabalfrontend:pr-${{ github.event.number }}
