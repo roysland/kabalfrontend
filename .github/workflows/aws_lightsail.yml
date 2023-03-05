@@ -40,3 +40,15 @@ jobs:
     - name: Push the Docker Image
       run: >
         aws lightsail push-container-image --region eu-north-1 --service-name container-service-1 --label frontend --image frontend:latest
+    - name: Get the latest Node image from Lightsail
+          run: >
+            echo "LATEST_NODE_IMAGE=$(aws lightsail get-container-images --service-name container-service-1 | jq -r '.containerImages | map(select(.image | contains ("nodejs") )) | .[0].image')" >> $GITHUB_ENV
+    - name: Create container_with_image.yml
+        run: |
+          cat .github/workflows/container.yml.tpl | envsubst > container_with_image.yml
+          cat container_with_image.yml 
+    - name: Deploy to Lightsail
+      run: >
+        aws lightsail create-container-service-deployment
+        --cli-input-yaml file://container_with_image.yml
+        --output yaml
