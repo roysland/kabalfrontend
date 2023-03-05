@@ -1,6 +1,6 @@
 serviceName: container-service-1
 containers:
-  node:
+  frontend:
     command: []
     environment:
       test: test
