@@ -13,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "oracledb": "^5.5.0"
+    "oracledb": "^5.5.0",
+    "marine": "*"
   },
   "devDependencies": {
     "@astrojs/node": "^5.0.4",

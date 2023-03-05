@@ -1,5 +1,5 @@
 {
-  "name": "Kabal-Frontend-Skeleton",
+  "name": "frontend-architecture",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -8,12 +8,13 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build:local": "turbo run build && npm run deployserver",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "deployserver": "turbo prune --scope=\"server\" --docker && docker build --pull --rm -f \"Dockerfile\" -t frontendarchitecture:latest \".\""
   },
   "devDependencies": {
-    "eslint-config-custom": "*",
     "prettier": "latest",
     "turbo": "latest"
   },

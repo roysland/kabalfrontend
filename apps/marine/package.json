@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
-		"build": "astro build && cp -r dist/ ../server/marine",
+		"build": "astro build && cp -r dist/client/* ../server/public",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
