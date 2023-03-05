@@ -1,0 +1,21 @@
+{
+	"name": "marine",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build && cp -r dist/client/* ../server/public",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"exports": {
+		"./client": "./dist/client",
+		"./server": "./dist/server/entry.mjs"
+	},
+	"dependencies": {
+		"@astrojs/node": "^5.0.4",
+		"@astrojs/svelte": "^2.0.2",
+		"astro": "^2.0.15"
+	}
+}
