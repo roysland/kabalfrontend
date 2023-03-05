@@ -39,3 +39,5 @@ Packages are modules that are used in other applications. These include shared l
 * Create a Container registry
 * Upload container to registry
 * Create a Web App with container
+* Once the app service is running, go to Deployment > Deployment center
+* Change source to Github Actions (or Azure pipelines if you want to use Azure Devops)
