@@ -13,7 +13,7 @@ RUN npm install -g turbo
 
 # Copy the rest of the application files to the container
 COPY ./out/full .
-
+RUN npm install
 # Expose the port that the server will listen on
 EXPOSE 3000
 # Change the ownership of the application files to the node user

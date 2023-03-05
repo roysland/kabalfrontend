@@ -12,7 +12,8 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "deployserver": "turbo prune --scope=\"server\" --docker && docker build --pull --rm -f \"Dockerfile\" -t frontendarchitecture:latest \".\""
+    "push:image": "aws lightsail push-container-image --region eu-north-1 --service-name container-service-1 --label frontend --image frontend:latest",
+    "deployserver": "turbo prune --scope=\"server\" --docker && docker build --pull --rm -f \"Dockerfile\" -t frontend:latest \".\""
   },
   "devDependencies": {
     "prettier": "latest",
