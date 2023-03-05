@@ -1,7 +1,7 @@
 name: Dev - Build and deploy Docker to AWS Lightsail Container Service
 
 on:
-  push:
+  pull_request:
    branches:
      - main
 
