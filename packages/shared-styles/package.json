@@ -1,5 +1,5 @@
 {
-  "name": "shared-styles",
+  "name": "@kabal/shared-styles",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

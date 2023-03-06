@@ -12,24 +12,6 @@ app.get('/', (req, res) => {
 })
 
 
-app.post('/webhook', (req, res) => {
-  const { action, pull_request } = req.body;
-
-  if (action === 'closed' && pull_request.merged && pull_request.head.ref === 'main') {
-    exec('docker-compose up --build -d', (err, stdout, stderr) => {
-      if (err) {
-        console.error(err);
-        res.sendStatus(500);
-      } else {
-        console.log(stdout);
-        res.sendStatus(200);
-      }
-    });
-  } else {
-    res.sendStatus(200);
-  }
-});
-
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
 });
